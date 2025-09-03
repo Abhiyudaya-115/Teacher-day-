@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teachers' Day Tribute 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;           /* slate-900 */
+      --card:#111827;         /* gray-900 */
+      --muted:#94a3b8;        /* slate-400 */
+      --text:#e5e7eb;         /* gray-200 */
+      --accent:#22d3ee;       /* cyan-400 */
+      --accent-2:#a78bfa;     /* violet-400 */
+      --ring: rgba(34,211,238,.45);
+      --shadow: 0 10px 30px rgba(2,8,23,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 700px at 10% -10%, rgba(167,139,250,.12), transparent 60%),
+                       radial-gradient(900px 600px at 110% 10%, rgba(34,211,238,.10), transparent 60%), var(--bg);
+               color:var(--text); font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* ===== HERO ===== */
+    .hero{position:relative; overflow:hidden; border-radius:calc(var(--radius) + 6px); box-shadow:var(--shadow);}
+    .hero .group-photo{
+      width:100%; height:420px; object-fit:cover; display:block; filter:saturate(1.05) contrast(1.03);
+    }
+    .hero .overlay{
+      position:absolute; inset:0; background:linear-gradient(180deg, rgba(2,6,23,0.10) 0%, rgba(2,6,23,0.55) 55%, rgba(2,6,23,0.90) 100%);
+      display:flex; align-items:flex-end; padding:28px;
+    }
+    .hero h1{margin:0; font-size:clamp(28px, 4vw, 46px); font-weight:700; letter-spacing:.3px}
+    .hero p{margin:8px 0 0; color:var(--muted); font-weight:400}
+
+    .ribbon{
+      display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border-radius:999px; backdrop-filter:blur(6px);
+      background:rgba(2,6,23,.55); border:1px solid rgba(167,139,250,.35); box-shadow: 0 6px 24px rgba(167,139,250,.25);
+      position:absolute; top:14px; left:14px; font-size:14px;
+    }
+    .badge{display:inline-grid; place-items:center; width:26px; height:26px; border-radius:50%;
+      background:conic-gradient(from 180deg, var(--accent), var(--accent-2)); font-weight:700; color:#0b1020}
+
+    /* ===== MEMBERS ===== */
+    section.members{margin-top:28px}
+    .section-title{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px}
+    .section-title h2{margin:0;font-size:clamp(22px, 3vw, 28px)}
+    .section-title .hint{color:var(--muted); font-size:14px}
+
+    .list{display:grid; grid-template-columns:1fr; gap:14px}
+    @media (min-width:680px){ .list{grid-template-columns:1fr} }
+
+    .card{display:flex; gap:16px; align-items:center; padding:14px; background:linear-gradient(180deg,rgba(17,24,39,.9),rgba(2,6,23,.85));
+          border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .avatar{flex:0 0 auto; width:72px; height:72px; border-radius:50%; object-fit:cover; border:3px solid transparent;
+            background:linear-gradient(#0000,#0000) padding-box,
+                       conic-gradient(from 180deg, var(--accent), var(--accent-2)) border-box;
+            box-shadow:0 0 0 6px rgba(34,211,238,.08)}
+    .info{flex:1 1 auto; min-width:0}
+    .name{font-weight:600; font-size:18px; display:flex; gap:8px; align-items:center}
+    .nick{font-weight:500; color:var(--accent); font-size:14px}
+    .bio{margin:6px 0 0; color:var(--muted); line-height:1.55; font-size:14px}
+
+    .meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .tag{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:13px; color:#0b1020;
+         background:linear-gradient(180deg, rgba(34,211,238,.85), rgba(167,139,250,.85)); border:1px solid rgba(255,255,255,.35)}
+    .tag a{color:inherit; text-decoration:none}
+
+    /* ===== WISHING ===== */
+    .wish{margin-top:26px; padding:18px; border-radius:var(--radius);
+          background:linear-gradient(180deg, rgba(15,23,42,.9), rgba(2,6,23,.85)); border:1px solid rgba(148,163,184,.2); box-shadow:var(--shadow)}
+    .wish h3{margin:0 0 8px 0; font-size:clamp(20px, 2.6vw, 26px)}
+    .wish p{margin:0; color:var(--muted); line-height:1.65}
+
+    footer{margin:24px 0 10px; text-align:center; color:var(--muted); font-size:13px}
+    .btn{display:inline-block; padding:10px 16px; border-radius:12px; border:1px solid rgba(148,163,184,.25);
+         background:transparent; color:var(--text); text-decoration:none}
+
+    /* PRINT */
+    @media print{
+      body{background:#fff; color:#111}
+      .hero .overlay{background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.7) 60%, rgba(255,255,255,.95) 100%)}
+      .card, .wish{background:#fff; border-color:#e5e7eb; box-shadow:none; -webkit-print-color-adjust:exact}
+      .tag{color:#111}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ===== HERO with Group Photo =====
+      Replace src with your class/teachers group image path.
+    -->
+    <div class="hero">
+      <img class="group-photo" src="group.jpg" alt="Group photo — Teachers' Day 2025" />
+      <div class="ribbon"><span class="badge">🫶</span> Teachers' Day — 5 Sept 2025</div>
+      <div class="overlay">
+        <div>
+          <h1>शिक्षक दिवस की ढेर सारी शुभकामनाएँ!</h1>
+          <p>"A good teacher can inspire hope, ignite the imagination, and instill a love of learning."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== MEMBERS LIST ===== -->
+    <section class="members" aria-label="Students & Alumni Tribute">
+      <div class="section-title">
+        <h2>हमारी ओर से Tribute</h2>
+        <span class="hint">नीचे line-by-line गोल फोटो, नाम, Insta ID, Mobile, Nickname, Bio आदि दिए हैं।</span>
+      </div>
+
+      <div class="list">
+        <!-- ==== CARD TEMPLATE (Copy–Paste to add more) ====
+          <article class="card">
+            <img class="avatar" src="images/name.jpg" alt="Your Name" />
+            <div class="info">
+              <div class="name">Your Name <span class="nick">(Nickname)</span></div>
+              <p class="bio">Short bio about you — interests, batch, gratitude line for teachers, etc.</p>
+              <div class="meta">
+                <span class="tag">📱 +91-00000 00000</span>
+                <span class="tag">📷 <a href="https://instagram.com/yourid" target="_blank" rel="noopener">@yourid</a></span>
+              </div>
+            </div>
+          </article>
+        -->
+
+        <!-- Sample 01 -->
+        <article class="card">
+          <img class="avatar" src="abhi.jpg" alt="Agnivesh Sharma" />
+          <div class="info">
+            <div class="name">Agnivesh Sharma <span class="nick">(Abhi)</span></div>
+            <p class="bio">Batch 2025–26 | "Thank you teachers for believing in us and shaping our future."</p>
+            <div class="meta">
+              <span class="tag">📱 +91-91614 35344</span>
+              <span class="tag">📷 <a href="https://instagram.com/ng_oggysye" target="_blank" rel="noopener">@ng_oggysye</a></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sample 02 -->
+        <article class="card">
+          <img class="avatar" src="aadi.jpg" alt="Aditya Kumar" />
+          <div class="info">
+            <div class="name">Aditya Kumar <span class="nick">(Bakula)</span></div>
+            <p class="bio">Coder • Football | "आपके मार्गदर्शन से ही हमारी उड़ान है।"</p>
+            <div class="meta">
+              <span class="tag">📱 +91-88536 34214</span>
+              <span class="tag">📷 <a href="https://instagram.com/aadiiii_09___" target="_blank" rel="noopener">@aadiiii_09____</a></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sample 03 -->
+        <article class="card">
+          <img class="avatar" src="him.jpg" alt="Sweta Sharma" />
+          <div class="info">
+            <div class="name">Himanshu yadav <span class="nick">(Jonny)</span></div>
+            <p class="bio">"Each lesson you taught became a step toward our dreams. Gratitude, always."</p>
+            <div class="meta">
+              <span class="tag">📱 +91-75180 96445</span>
+              <span class="tag">📷 <a href="https://instagram.com/alone_boy_himanshuyadav_09" target="_blank" rel="noopener">@alone_boy_hima.......</a></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sample 04 -->
+        <article class="card">
+          <img class="avatar" src="shubh.jpg" alt="Shubham" />
+          <div class="info">
+            <div class="name">Shubham Kumar <span class="nick">(Shubh)</span></div>
+            <p class="bio">Music • Photography | "Teachers are our forever cheerleaders."</p>
+            <div class="meta">
+              <span class="tag">📱 +91-63069 36176</span>
+              <span class="tag">📷 <a href="https://instagram.com/itz_bad_boy_shubh_07" target="_blank" rel="noopener">@itz_bad_boy.......</a></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sample 05 -->
+        <article class="card">
+          <img class="avatar" src="divyanshu.jpg" alt="Anshika Patel" />
+          <div class="info">
+            <div class="name">Divyanshu Gautam <span class="nick">(Chokha)</span></div>
+            <p class="bio">Debate • Reading | "आपके आशीर्वाद से ही आज हम बेहतर हैं।"</p>
+            <div class="meta">
+              <span class="tag">📱 +91 91199 53751</span>
+              <span class="tag">📷 <a href="https://instagram.com/its_prakash_bhai_18" target="_blank" rel="noopener">@divanshu_kr....</a></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sample 06 -->
+        <article class="card">
+          <img class="avatar" src="ashutosh.jpg" alt="Ashutosh Kumar Yadav" />
+          <div class="info">
+            <div class="name">Ashutosh Yadav<span class="nick">(Rangdar)</span></div>
+            <p class="bio">Sports • Volunteering | "You turned our doubts into confidence."</p>
+            <div class="meta">
+              <span class="tag">📱 +91 88088 02697</span>
+              <span class="tag">📷 <a href="https://instagram.com/its_ashutoshyadav_07" target="_blank" rel="noopener">@ashutosh_yadav......</a></span>
+            </div>
+          </div>
+        </article>
+        
+         <!-- Sample 07 -->
+        <article class="card">
+          <img class="avatar" src="pankaj.jpg" alt="pankaj rajbhar" />
+          <div class="info">
+            <div class="name">Pankaj Rajbhar <span class="nick">(PJ)</span></div>
+            <p class="bio">Debate • Reading | "आपके आशीर्वाद से ही आज हम बेहतर हैं।"</p>
+            <div class="meta">
+              <span class="tag">📱 +91 92355 10747</span>
+              <span class="tag">📷 <a href="https://instagram.com/its_pankaj4256" target="_blank" rel="noopener">@its_pankaj4256</a></span>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+
+    <!-- ===== WISHING SECTION ===== -->
+    <section class="wish" id="wish">
+      <h3>हमारी ओर से विशेष संदेश</h3>
+      <p>
+        प्रिय शिक्षकों, आप ही हमारे सपनों की पहली सीढ़ी हैं। आपने हमें मेहनत, अनुशासन और दया का अर्थ समझाया।
+        आज Teacher's Day पर हम सब मिलकर आपका धन्यवाद करते हैं — आपकी हर मुस्कान और हर समझाने के तरीके ने
+        हमें और बेहतर बनाया।
+      </p>
+      <p style="margin-top:10px">💐 <strong>Happy Teachers' Day 2025!</strong> — Batch 2025–26</p>
+    </section>
+
+    <footer>
+      <!-- If you want a separate page just for the wish, you can duplicate this section into another HTML file. -->
+      Made with ❤️ by oggy for our amazing Teachers.
+    </footer>
+
+  </div>
+</body>
+</html>
+
